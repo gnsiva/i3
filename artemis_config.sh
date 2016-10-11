@@ -217,4 +217,8 @@ bindsym $mod+minus scratchpad show
 bindsym mod4+o [title="emacs@artemis"] scratchpad show
 
 # fonts please
-font pango: Monospace 8
+font pango: Ubuntu Mono 11
+
+# wallpaper
+exec --no-startup-id feh --bg-fill /home/gns/Pictures/OgR1F8.jpg
+
