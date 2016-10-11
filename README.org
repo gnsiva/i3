@@ -1,8 +1,8 @@
-#+Title: Configuration notes
-* General configuration requirements
-* Artemis requirements
+* Configuration notes
+** General configuration requirements
+** Artemis requirements
 Artemis is a laptop running Ubuntu Gnome 16.04.1.
 #+BEGIN_SRC sh
 sudo apt-get install pulseaudio-utils xbacklight clementine
 #+END_SRC
-* Anake requirements
+** Anake requirements
