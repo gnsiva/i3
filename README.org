@@ -1,5 +1,12 @@
 * Configuration notes
-** General configuration requirements
+** Useful links
+
+- Keyboard shortcut cheatsheet
+  - https://i3wm.org/docs/refcard.html
+- The actual user guide which is very good
+  - https://i3wm.org/docs/userguide.html
+- Layout saving
+  - https://i3wm.org/docs/layout-saving.html
 ** Artemis requirements
 Artemis is a laptop running Ubuntu Gnome 16.04.1.
 #+BEGIN_SRC sh
@@ -7,4 +14,3 @@ sudo apt-get install pulseaudio-utils xbacklight clementine
 #+END_SRC
 
 You may need to install =xcape=? not sure where that's from.
-** Anake requirements
