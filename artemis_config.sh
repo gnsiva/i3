@@ -92,13 +92,16 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# label workspaces
 set $workspace1 "1: Terminals"
 set $workspace2 "2: Firefox"
+set $workspace3 "3: Emacs"
 set $workspace10 "10: Clementine"
+
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace 3
+bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -110,7 +113,7 @@ bindsym $mod+0 workspace $workspace10
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -121,7 +124,9 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # force applications to load on a given workspace
 assign [class="Clementine"] $workspace10
-assign [class="Firefox"] $workspace2
+## these are instead going to be opened on the correct workspace
+# assign [class="Firefox"] $workspace2
+assign [class="Emacs"] $workspace3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -178,20 +183,28 @@ bar {
 bindsym $mod+Shift+s sticky toggle
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
-# Media player controls
+# Media player controls # you need to install playerctl to get this to work
 #bindsym XF86AudioPlay exec playerctl play
 #bindsym XF86AudioPause exec playerctl pause
 #bindsym XF86AudioNext exec playerctl next
 #bindsym XF86AudioPrev exec playerctl previous
 
+
+# open an application on a given workspace
+exec --no-startup-id i3-msg 'workspace $workspace2; exec /usr/bin/firefox'
+
+# standard open, works well with forcing an app to open on a particular workspace
 exec clementine
-exec firefox
+exec emacs
 exec gnome-terminal
+
+
+
