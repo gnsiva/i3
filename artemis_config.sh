@@ -206,5 +206,12 @@ exec clementine
 exec emacs
 exec gnome-terminal
 
+# scratchpad configuration
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
 
-
+# Show the sup-mail scratchpad window, if any.
+#bindsym mod4+s [title="^Sup ::"] scratchpad show
+bindsym mod4+o [title="emacs@artemis"] scratchpad show
