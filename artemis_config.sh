@@ -96,13 +96,14 @@ bindsym $mod+a focus parent
 set $workspace1 "1: Terminals"
 set $workspace2 "2: Firefox"
 set $workspace3 "3: Emacs"
+set $workspace4 "4: Chrome"
 set $workspace10 "10: Clementine"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -114,7 +115,7 @@ bindsym $mod+0 workspace $workspace10
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -200,11 +201,15 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 
 # open an application on a given workspace
 exec --no-startup-id i3-msg 'workspace $workspace2; exec /usr/bin/firefox'
+exec --no-startup-id i3-msg 'workspace $workspace4; exec /usr/bin/google-chrome'
 
 # standard open, works well with forcing an app to open on a particular workspace
 exec clementine
 exec emacs
 exec gnome-terminal
+
+# network manager applet, might need to remove
+exec --no-startup-id nm-applet
 
 # scratchpad configuration
 # Make the currently focused window a scratchpad
